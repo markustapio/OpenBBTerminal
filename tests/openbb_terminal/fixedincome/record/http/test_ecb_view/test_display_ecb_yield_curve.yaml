@@ -1,0 +1,452 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - Content-Type=text/csv
+    method: GET
+    uri: https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_3M?startPeriod=2024-02-13&endPeriod=2024-02-13&format=csvdata
+  response:
+    body:
+      string: "KEY,FREQ,REF_AREA,CURRENCY,PROVIDER_FM,INSTRUMENT_FM,PROVIDER_FM_ID,DATA_TYPE_FM,TIME_PERIOD,OBS_VALUE,OBS_STATUS,OBS_CONF,OBS_PRE_BREAK,OBS_COM,TIME_FORMAT,BREAKS,COLLECTION,COMPILING_ORG,DISS_ORG,DOM_SER_IDS,FM_CONTRACT_TIME,FM_COUPON_RATE,FM_IDENTIFIER,FM_LOT_SIZE,FM_MATURITY,FM_OUTS_AMOUNT,FM_PUT_CALL,FM_STRIKE_PRICE,PUBL_MU,PUBL_PUBLIC,UNIT_INDEX_BASE,COMPILATION,COVERAGE,DECIMALS,SOURCE_AGENCY,SOURCE_PUB,TITLE,TITLE_COMPL,UNIT,UNIT_MULT\r\nYC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_3M,B,U2,EUR,4F,G_N_A,SV_C_YM,SR_3M,2024-02-13,3.8568932787,A,F,,,P1D,,E,,,,,,,,,,,,,,,,,6,,,\"Yield
+        curve spot rate, 3-month maturity - Government bond, nominal, all issuers
+        whose rating is triple A - Euro area (changing composition)\",\"Euro area
+        (changing composition) - Government bond, nominal, all issuers whose rating
+        is triple A - Svensson model - continuous compounding - yield error minimisation
+        - Yield curve spot rate, 3-month maturity - provided by ECB\",PCPA,0\r\n"
+    headers:
+      Cache-Control:
+      - max-age=30
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment;filename=data.csv
+      Content-Length:
+      - '951'
+      Content-Type:
+      - text/csv;charset=UTF-8
+      Date:
+      - Wed, 14 Feb 2024 11:16:25 GMT
+      Expires:
+      - Wed, 14 Feb 2024 11:04:50 GMT
+      Last-Modified:
+      - Wed, 14 Feb 2024 10:58:29 GMT
+      Server:
+      - myracloud
+      Vary:
+      - accept
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - Content-Type=text/csv
+    method: GET
+    uri: https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_6M?startPeriod=2024-02-13&endPeriod=2024-02-13&format=csvdata
+  response:
+    body:
+      string: "KEY,FREQ,REF_AREA,CURRENCY,PROVIDER_FM,INSTRUMENT_FM,PROVIDER_FM_ID,DATA_TYPE_FM,TIME_PERIOD,OBS_VALUE,OBS_STATUS,OBS_CONF,OBS_PRE_BREAK,OBS_COM,TIME_FORMAT,BREAKS,COLLECTION,COMPILING_ORG,DISS_ORG,DOM_SER_IDS,FM_CONTRACT_TIME,FM_COUPON_RATE,FM_IDENTIFIER,FM_LOT_SIZE,FM_MATURITY,FM_OUTS_AMOUNT,FM_PUT_CALL,FM_STRIKE_PRICE,PUBL_MU,PUBL_PUBLIC,UNIT_INDEX_BASE,COMPILATION,COVERAGE,DECIMALS,SOURCE_AGENCY,SOURCE_PUB,TITLE,TITLE_COMPL,UNIT,UNIT_MULT\r\nYC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_6M,B,U2,EUR,4F,G_N_A,SV_C_YM,SR_6M,2024-02-13,3.6250568456,A,F,,,P1D,,E,,,,,,,,,,,,,,,,,6,,,\"Yield
+        curve spot rate, 6-month maturity - Government bond, nominal, all issuers
+        whose rating is triple A - Euro area (changing composition)\",\"Euro area
+        (changing composition) - Government bond, nominal, all issuers whose rating
+        is triple A - Svensson model - continuous compounding - yield error minimisation
+        - Yield curve spot rate, 6-month maturity - provided by ECB\",PCPA,0\r\n"
+    headers:
+      Cache-Control:
+      - max-age=30
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment;filename=data.csv
+      Content-Length:
+      - '951'
+      Content-Type:
+      - text/csv;charset=UTF-8
+      Date:
+      - Wed, 14 Feb 2024 11:16:26 GMT
+      Expires:
+      - Wed, 14 Feb 2024 11:04:51 GMT
+      Last-Modified:
+      - Wed, 14 Feb 2024 10:58:29 GMT
+      Server:
+      - myracloud
+      Vary:
+      - accept
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - Content-Type=text/csv
+    method: GET
+    uri: https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_1Y?startPeriod=2024-02-13&endPeriod=2024-02-13&format=csvdata
+  response:
+    body:
+      string: "KEY,FREQ,REF_AREA,CURRENCY,PROVIDER_FM,INSTRUMENT_FM,PROVIDER_FM_ID,DATA_TYPE_FM,TIME_PERIOD,OBS_VALUE,OBS_STATUS,OBS_CONF,OBS_PRE_BREAK,OBS_COM,TIME_FORMAT,BREAKS,COLLECTION,COMPILING_ORG,DISS_ORG,DOM_SER_IDS,FM_CONTRACT_TIME,FM_COUPON_RATE,FM_IDENTIFIER,FM_LOT_SIZE,FM_MATURITY,FM_OUTS_AMOUNT,FM_PUT_CALL,FM_STRIKE_PRICE,PUBL_MU,PUBL_PUBLIC,UNIT_INDEX_BASE,COMPILATION,COVERAGE,DECIMALS,SOURCE_AGENCY,SOURCE_PUB,TITLE,TITLE_COMPL,UNIT,UNIT_MULT\r\nYC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_1Y,B,U2,EUR,4F,G_N_A,SV_C_YM,SR_1Y,2024-02-13,3.2485407458,A,F,,,P1D,,E,,,,,,,,,,,,,,,,,6,,,\"Yield
+        curve spot rate, 1-year maturity - Government bond, nominal, all issuers whose
+        rating is triple A - Euro area (changing composition)\",\"Euro area (changing
+        composition) - Government bond, nominal, all issuers whose rating is triple
+        A - Svensson model - continuous compounding - yield error minimisation - Yield
+        curve spot rate, 1-year maturity - provided by ECB\",PCPA,0\r\n"
+    headers:
+      Cache-Control:
+      - max-age=30
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment;filename=data.csv
+      Content-Length:
+      - '949'
+      Content-Type:
+      - text/csv;charset=UTF-8
+      Date:
+      - Wed, 14 Feb 2024 11:16:26 GMT
+      Expires:
+      - Wed, 14 Feb 2024 11:04:52 GMT
+      Last-Modified:
+      - Wed, 14 Feb 2024 10:58:29 GMT
+      Server:
+      - myracloud
+      Vary:
+      - accept
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - Content-Type=text/csv
+    method: GET
+    uri: https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y?startPeriod=2024-02-13&endPeriod=2024-02-13&format=csvdata
+  response:
+    body:
+      string: "KEY,FREQ,REF_AREA,CURRENCY,PROVIDER_FM,INSTRUMENT_FM,PROVIDER_FM_ID,DATA_TYPE_FM,TIME_PERIOD,OBS_VALUE,OBS_STATUS,OBS_CONF,OBS_PRE_BREAK,OBS_COM,TIME_FORMAT,BREAKS,COLLECTION,COMPILING_ORG,DISS_ORG,DOM_SER_IDS,FM_CONTRACT_TIME,FM_COUPON_RATE,FM_IDENTIFIER,FM_LOT_SIZE,FM_MATURITY,FM_OUTS_AMOUNT,FM_PUT_CALL,FM_STRIKE_PRICE,PUBL_MU,PUBL_PUBLIC,UNIT_INDEX_BASE,COMPILATION,COVERAGE,DECIMALS,SOURCE_AGENCY,SOURCE_PUB,TITLE,TITLE_COMPL,UNIT,UNIT_MULT\r\nYC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y,B,U2,EUR,4F,G_N_A,SV_C_YM,SR_2Y,2024-02-13,2.7570764919,A,F,,,P1D,,E,,,,,,,,,,,,,,,,,6,,,\"Yield
+        curve spot rate, 2-year maturity - Government bond, nominal, all issuers whose
+        rating is triple A - Euro area (changing composition)\",\"Euro area (changing
+        composition) - Government bond, nominal, all issuers whose rating is triple
+        A - Svensson model - continuous compounding - yield error minimisation - Yield
+        curve spot rate, 2-year maturity - provided by ECB\",PCPA,0\r\n"
+    headers:
+      Cache-Control:
+      - max-age=30
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment;filename=data.csv
+      Content-Length:
+      - '949'
+      Content-Type:
+      - text/csv;charset=UTF-8
+      Date:
+      - Wed, 14 Feb 2024 11:16:27 GMT
+      Expires:
+      - Wed, 14 Feb 2024 11:04:53 GMT
+      Last-Modified:
+      - Wed, 14 Feb 2024 10:58:29 GMT
+      Server:
+      - myracloud
+      Vary:
+      - accept
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - Content-Type=text/csv
+    method: GET
+    uri: https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_3Y?startPeriod=2024-02-13&endPeriod=2024-02-13&format=csvdata
+  response:
+    body:
+      string: "KEY,FREQ,REF_AREA,CURRENCY,PROVIDER_FM,INSTRUMENT_FM,PROVIDER_FM_ID,DATA_TYPE_FM,TIME_PERIOD,OBS_VALUE,OBS_STATUS,OBS_CONF,OBS_PRE_BREAK,OBS_COM,TIME_FORMAT,BREAKS,COLLECTION,COMPILING_ORG,DISS_ORG,DOM_SER_IDS,FM_CONTRACT_TIME,FM_COUPON_RATE,FM_IDENTIFIER,FM_LOT_SIZE,FM_MATURITY,FM_OUTS_AMOUNT,FM_PUT_CALL,FM_STRIKE_PRICE,PUBL_MU,PUBL_PUBLIC,UNIT_INDEX_BASE,COMPILATION,COVERAGE,DECIMALS,SOURCE_AGENCY,SOURCE_PUB,TITLE,TITLE_COMPL,UNIT,UNIT_MULT\r\nYC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_3Y,B,U2,EUR,4F,G_N_A,SV_C_YM,SR_3Y,2024-02-13,2.49519465,A,F,,,P1D,,E,,,,,,,,,,,,,,,,,6,,,\"Yield
+        curve spot rate, 3-year maturity - Government bond, nominal, all issuers whose
+        rating is triple A - Euro area (changing composition)\",\"Euro area (changing
+        composition) - Government bond, nominal, all issuers whose rating is triple
+        A - Svensson model - continuous compounding - yield error minimisation - Yield
+        curve spot rate, 3-year maturity - provided by ECB\",PCPA,0\r\n"
+    headers:
+      Cache-Control:
+      - max-age=30
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment;filename=data.csv
+      Content-Length:
+      - '947'
+      Content-Type:
+      - text/csv;charset=UTF-8
+      Date:
+      - Wed, 14 Feb 2024 11:16:28 GMT
+      Expires:
+      - Wed, 14 Feb 2024 11:04:53 GMT
+      Last-Modified:
+      - Wed, 14 Feb 2024 10:58:29 GMT
+      Server:
+      - myracloud
+      Vary:
+      - accept
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - Content-Type=text/csv
+    method: GET
+    uri: https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y?startPeriod=2024-02-13&endPeriod=2024-02-13&format=csvdata
+  response:
+    body:
+      string: "KEY,FREQ,REF_AREA,CURRENCY,PROVIDER_FM,INSTRUMENT_FM,PROVIDER_FM_ID,DATA_TYPE_FM,TIME_PERIOD,OBS_VALUE,OBS_STATUS,OBS_CONF,OBS_PRE_BREAK,OBS_COM,TIME_FORMAT,BREAKS,COLLECTION,COMPILING_ORG,DISS_ORG,DOM_SER_IDS,FM_CONTRACT_TIME,FM_COUPON_RATE,FM_IDENTIFIER,FM_LOT_SIZE,FM_MATURITY,FM_OUTS_AMOUNT,FM_PUT_CALL,FM_STRIKE_PRICE,PUBL_MU,PUBL_PUBLIC,UNIT_INDEX_BASE,COMPILATION,COVERAGE,DECIMALS,SOURCE_AGENCY,SOURCE_PUB,TITLE,TITLE_COMPL,UNIT,UNIT_MULT\r\nYC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y,B,U2,EUR,4F,G_N_A,SV_C_YM,SR_5Y,2024-02-13,2.323552856,A,F,,,P1D,,E,,,,,,,,,,,,,,,,,6,,,\"Yield
+        curve spot rate, 5-year maturity - Government bond, nominal, all issuers whose
+        rating is triple A - Euro area (changing composition)\",\"Euro area (changing
+        composition) - Government bond, nominal, all issuers whose rating is triple
+        A - Svensson model - continuous compounding - yield error minimisation - Yield
+        curve spot rate, 5-year maturity - provided by ECB\",PCPA,0\r\n"
+    headers:
+      Cache-Control:
+      - max-age=30
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment;filename=data.csv
+      Content-Length:
+      - '948'
+      Content-Type:
+      - text/csv;charset=UTF-8
+      Date:
+      - Wed, 14 Feb 2024 11:16:28 GMT
+      Expires:
+      - Wed, 14 Feb 2024 11:04:54 GMT
+      Last-Modified:
+      - Wed, 14 Feb 2024 10:58:29 GMT
+      Server:
+      - myracloud
+      Vary:
+      - accept
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - Content-Type=text/csv
+    method: GET
+    uri: https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_7Y?startPeriod=2024-02-13&endPeriod=2024-02-13&format=csvdata
+  response:
+    body:
+      string: "KEY,FREQ,REF_AREA,CURRENCY,PROVIDER_FM,INSTRUMENT_FM,PROVIDER_FM_ID,DATA_TYPE_FM,TIME_PERIOD,OBS_VALUE,OBS_STATUS,OBS_CONF,OBS_PRE_BREAK,OBS_COM,TIME_FORMAT,BREAKS,COLLECTION,COMPILING_ORG,DISS_ORG,DOM_SER_IDS,FM_CONTRACT_TIME,FM_COUPON_RATE,FM_IDENTIFIER,FM_LOT_SIZE,FM_MATURITY,FM_OUTS_AMOUNT,FM_PUT_CALL,FM_STRIKE_PRICE,PUBL_MU,PUBL_PUBLIC,UNIT_INDEX_BASE,COMPILATION,COVERAGE,DECIMALS,SOURCE_AGENCY,SOURCE_PUB,TITLE,TITLE_COMPL,UNIT,UNIT_MULT\r\nYC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_7Y,B,U2,EUR,4F,G_N_A,SV_C_YM,SR_7Y,2024-02-13,2.346299986,A,F,,,P1D,,E,,,,,,,,,,,,,,,,,6,,,\"Yield
+        curve spot rate, 7-year maturity - Government bond, nominal, all issuers whose
+        rating is triple A - Euro area (changing composition)\",\"Euro area (changing
+        composition) - Government bond, nominal, all issuers whose rating is triple
+        A - Svensson model - continuous compounding - yield error minimisation - Yield
+        curve spot rate, 7-year maturity - provided by ECB\",PCPA,0\r\n"
+    headers:
+      Cache-Control:
+      - max-age=30
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment;filename=data.csv
+      Content-Length:
+      - '948'
+      Content-Type:
+      - text/csv;charset=UTF-8
+      Date:
+      - Wed, 14 Feb 2024 11:16:29 GMT
+      Expires:
+      - Wed, 14 Feb 2024 11:04:55 GMT
+      Last-Modified:
+      - Wed, 14 Feb 2024 10:58:29 GMT
+      Server:
+      - myracloud
+      Vary:
+      - accept
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - Content-Type=text/csv
+    method: GET
+    uri: https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y?startPeriod=2024-02-13&endPeriod=2024-02-13&format=csvdata
+  response:
+    body:
+      string: "KEY,FREQ,REF_AREA,CURRENCY,PROVIDER_FM,INSTRUMENT_FM,PROVIDER_FM_ID,DATA_TYPE_FM,TIME_PERIOD,OBS_VALUE,OBS_STATUS,OBS_CONF,OBS_PRE_BREAK,OBS_COM,TIME_FORMAT,BREAKS,COLLECTION,COMPILING_ORG,DISS_ORG,DOM_SER_IDS,FM_CONTRACT_TIME,FM_COUPON_RATE,FM_IDENTIFIER,FM_LOT_SIZE,FM_MATURITY,FM_OUTS_AMOUNT,FM_PUT_CALL,FM_STRIKE_PRICE,PUBL_MU,PUBL_PUBLIC,UNIT_INDEX_BASE,COMPILATION,COVERAGE,DECIMALS,SOURCE_AGENCY,SOURCE_PUB,TITLE,TITLE_COMPL,UNIT,UNIT_MULT\r\nYC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y,B,U2,EUR,4F,G_N_A,SV_C_YM,SR_10Y,2024-02-13,2.4619773052,A,F,,,P1D,,E,,,,,,,,,,,,,,,,,6,,,\"Yield
+        curve spot rate, 10-year maturity - Government bond, nominal, all issuers
+        whose rating is triple A - Euro area (changing composition)\",\"Euro area
+        (changing composition) - Government bond, nominal, all issuers whose rating
+        is triple A - Svensson model - continuous compounding - yield error minimisation
+        - Yield curve spot rate, 10-year maturity - provided by ECB\",PCPA,0\r\n"
+    headers:
+      Cache-Control:
+      - max-age=30
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment;filename=data.csv
+      Content-Length:
+      - '953'
+      Content-Type:
+      - text/csv;charset=UTF-8
+      Date:
+      - Wed, 14 Feb 2024 11:16:30 GMT
+      Expires:
+      - Wed, 14 Feb 2024 11:04:56 GMT
+      Last-Modified:
+      - Wed, 14 Feb 2024 10:58:29 GMT
+      Server:
+      - myracloud
+      Vary:
+      - accept
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - Content-Type=text/csv
+    method: GET
+    uri: https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_20Y?startPeriod=2024-02-13&endPeriod=2024-02-13&format=csvdata
+  response:
+    body:
+      string: "KEY,FREQ,REF_AREA,CURRENCY,PROVIDER_FM,INSTRUMENT_FM,PROVIDER_FM_ID,DATA_TYPE_FM,TIME_PERIOD,OBS_VALUE,OBS_STATUS,OBS_CONF,OBS_PRE_BREAK,OBS_COM,TIME_FORMAT,BREAKS,COLLECTION,COMPILING_ORG,DISS_ORG,DOM_SER_IDS,FM_CONTRACT_TIME,FM_COUPON_RATE,FM_IDENTIFIER,FM_LOT_SIZE,FM_MATURITY,FM_OUTS_AMOUNT,FM_PUT_CALL,FM_STRIKE_PRICE,PUBL_MU,PUBL_PUBLIC,UNIT_INDEX_BASE,COMPILATION,COVERAGE,DECIMALS,SOURCE_AGENCY,SOURCE_PUB,TITLE,TITLE_COMPL,UNIT,UNIT_MULT\r\nYC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_20Y,B,U2,EUR,4F,G_N_A,SV_C_YM,SR_20Y,2024-02-13,2.6588758132,A,F,,,P1D,,E,,,,,,,,,,,,,,,,,6,,,\"Yield
+        curve spot rate, 20-year maturity - Government bond, nominal, all issuers
+        whose rating is triple A - Euro area (changing composition)\",\"Euro area
+        (changing composition) - Government bond, nominal, all issuers whose rating
+        is triple A - Svensson model - continuous compounding - yield error minimisation
+        - Yield curve spot rate, 20-year maturity - provided by ECB\",PCPA,0\r\n"
+    headers:
+      Cache-Control:
+      - max-age=30
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment;filename=data.csv
+      Content-Length:
+      - '953'
+      Content-Type:
+      - text/csv;charset=UTF-8
+      Date:
+      - Wed, 14 Feb 2024 11:16:30 GMT
+      Expires:
+      - Wed, 14 Feb 2024 11:04:56 GMT
+      Last-Modified:
+      - Wed, 14 Feb 2024 10:58:29 GMT
+      Server:
+      - myracloud
+      Vary:
+      - accept
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - Content-Type=text/csv
+    method: GET
+    uri: https://data-api.ecb.europa.eu/service/data/YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_30Y?startPeriod=2024-02-13&endPeriod=2024-02-13&format=csvdata
+  response:
+    body:
+      string: "KEY,FREQ,REF_AREA,CURRENCY,PROVIDER_FM,INSTRUMENT_FM,PROVIDER_FM_ID,DATA_TYPE_FM,TIME_PERIOD,OBS_VALUE,OBS_STATUS,OBS_CONF,OBS_PRE_BREAK,OBS_COM,TIME_FORMAT,BREAKS,COLLECTION,COMPILING_ORG,DISS_ORG,DOM_SER_IDS,FM_CONTRACT_TIME,FM_COUPON_RATE,FM_IDENTIFIER,FM_LOT_SIZE,FM_MATURITY,FM_OUTS_AMOUNT,FM_PUT_CALL,FM_STRIKE_PRICE,PUBL_MU,PUBL_PUBLIC,UNIT_INDEX_BASE,COMPILATION,COVERAGE,DECIMALS,SOURCE_AGENCY,SOURCE_PUB,TITLE,TITLE_COMPL,UNIT,UNIT_MULT\r\nYC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_30Y,B,U2,EUR,4F,G_N_A,SV_C_YM,SR_30Y,2024-02-13,2.5734041421,A,F,,,P1D,,E,,,,,,,,,,,,,,,,,6,,,\"Yield
+        curve spot rate, 30-year maturity - Government bond, nominal, all issuers
+        whose rating is triple A - Euro area (changing composition)\",\"Euro area
+        (changing composition) - Government bond, nominal, all issuers whose rating
+        is triple A - Svensson model - continuous compounding - yield error minimisation
+        - Yield curve spot rate, 30-year maturity - provided by ECB\",PCPA,0\r\n"
+    headers:
+      Cache-Control:
+      - max-age=30
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment;filename=data.csv
+      Content-Length:
+      - '953'
+      Content-Type:
+      - text/csv;charset=UTF-8
+      Date:
+      - Wed, 14 Feb 2024 11:16:31 GMT
+      Expires:
+      - Wed, 14 Feb 2024 11:04:57 GMT
+      Last-Modified:
+      - Wed, 14 Feb 2024 10:58:29 GMT
+      Server:
+      - myracloud
+      Vary:
+      - accept
+    status:
+      code: 200
+      message: ''
+version: 1

@@ -21,29 +21,29 @@ logger = logging.getLogger(__name__)
 # pylint: disable=too-many-function-args
 
 ID_TO_NAME = {
-    "EST.B.EU000A2X2A25.WT": "Euro Short-Term Rate: Volume-Weighted Trimmed Mean Rate [Percent]",
-    "EST.B.EU000A2X2A25.TT": "Euro Short-Term Rate: Total Volume [Millions of EUR]",
-    "EST.B.EU000A2X2A25.NT": "Euro Short-Term Rate: Number of Transactions",
-    "EST.B.EU000A2X2A25.R75": "Euro Short-Term Rate: Rate at 75th Percentile of Volume [Percent]",
-    "EST.B.EU000A2X2A25.NB": "Euro Short-Term Rate: Number of Active Banks",
-    "EST.B.EU000A2X2A25.VL": "Euro Short-Term Rate: Share of Volume of the 5 Largest Active Banks [Percent]",
-    "EST.B.EU000A2X2A25.R25": "Euro Short-Term Rate: Rate at 25th Percentile of Volume [Percent]",
+    "EST/B.EU000A2X2A25.WT": "Euro Short-Term Rate: Volume-Weighted Trimmed Mean Rate [Percent]",
+    "EST/B.EU000A2X2A25.TT": "Euro Short-Term Rate: Total Volume [Millions of EUR]",
+    "EST/B.EU000A2X2A25.NT": "Euro Short-Term Rate: Number of Transactions",
+    "EST/B.EU000A2X2A25.R75": "Euro Short-Term Rate: Rate at 75th Percentile of Volume [Percent]",
+    "EST/B.EU000A2X2A25.NB": "Euro Short-Term Rate: Number of Active Banks",
+    "EST/B.EU000A2X2A25.VL": "Euro Short-Term Rate: Share of Volume of the 5 Largest Active Banks [Percent]",
+    "EST/B.EU000A2X2A25.R25": "Euro Short-Term Rate: Rate at 25th Percentile of Volume [Percent]",
 }
 
 ESTR_PARAMETER_TO_ECB_ID = {
-    "volume_weighted_trimmed_mean_rate": "EST.B.EU000A2X2A25.WT",
-    "number_of_transactions": "EST.B.EU000A2X2A25.NT",
-    "number_of_active_banks": "EST.B.EU000A2X2A25.NB",
-    "total_volume": "EST.B.EU000A2X2A25.TT",
-    "share_of_volume_of_the_5_largest_active_banks": "EST.B.EU000A2X2A25.VL",
-    "rate_at_75th_percentile_of_volume": "EST.B.EU000A2X2A25.R75",
-    "rate_at_25th_percentile_of_volume": "EST.B.EU000A2X2A25.R25",
+    "volume_weighted_trimmed_mean_rate": "EST/B.EU000A2X2A25.WT",
+    "number_of_transactions": "EST/B.EU000A2X2A25.NT",
+    "number_of_active_banks": "EST/B.EU000A2X2A25.NB",
+    "total_volume": "EST/B.EU000A2X2A25.TT",
+    "share_of_volume_of_the_5_largest_active_banks": "EST/B.EU000A2X2A25.VL",
+    "rate_at_75th_percentile_of_volume": "EST/B.EU000A2X2A25.R75",
+    "rate_at_25th_percentile_of_volume": "EST/B.EU000A2X2A25.R25",
 }
 
 
 @log_start_end(log=logger)
 def plot_estr(
-    parameter: str = "EST.B.EU000A2X2A25.WT",
+    parameter: str = "volume_weighted_trimmed_mean_rate",
     start_date: Optional[str] = None,
     end_date: Optional[str] = None,
     export: str = "",
@@ -55,9 +55,9 @@ def plot_estr(
     Parameters
     ----------
     series_id: str
-        ECB ID of ESTR data to plot, options: ['EST.B.EU000A2X2A25.WT', 'EST.B.EU000A2X2A25.TT',
-        'EST.B.EU000A2X2A25.NT', 'EST.B.EU000A2X2A25.R75', 'EST.B.EU000A2X2A25.NB',
-        'EST.B.EU000A2X2A25.VL', 'EST.B.EU000A2X2A25.R25']
+        ECB ID of ESTR data to plot, options: ['EST/B.EU000A2X2A25.WT', 'EST/B.EU000A2X2A25.TT',
+        'EST/B.EU000A2X2A25.NT', 'EST/B.EU000A2X2A25.R75', 'EST/B.EU000A2X2A25.NB',
+        'EST/B.EU000A2X2A25.VL', 'EST/B.EU000A2X2A25.R25']
     start_date: Optional[str]
         Start date, formatted YYYY-MM-DD
     end_date: Optional[str]
@@ -70,7 +70,7 @@ def plot_estr(
     series_id = ESTR_PARAMETER_TO_ECB_ID.get(parameter, "")
 
     df = ecb_model.get_series_data(
-        series_id, start_date if start_date else "", end_date if end_date else ""
+        series_id, start_date if start_date else None, end_date if end_date else None
     )
 
     fig = OpenBBFigure()
