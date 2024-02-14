@@ -8,7 +8,7 @@ from openbb_terminal.fixedincome import ecb_model
 def test_get_series_data(recorder):
     """Test get_series_data"""
     data = ecb_model.get_series_data(
-        "EST.B.EU000A2X2A25.WT", start_date="2022-01-01", end_date="2022-01-31"
+        series_id="EST/B.EU000A2X2A25.WT", start_date="2022-01-01", end_date="2022-01-31"
     )
     assert isinstance(data, pd.DataFrame)
     recorder.capture(data)

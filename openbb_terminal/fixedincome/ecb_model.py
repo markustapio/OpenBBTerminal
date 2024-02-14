@@ -10,7 +10,9 @@ from functools import partial
 from multiprocessing import Pool, cpu_count
 from typing import Tuple
 from urllib.error import HTTPError
+from io import StringIO
 
+from requests import get
 import pandas as pd
 
 from openbb_terminal.decorators import log_start_end
@@ -23,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 @log_start_end(log=logger)
 def get_series_data(
-    series_id: str = "EST.B.EU000A2X2A25.WT", start_date: str = "", end_date: str = ""
+    series_id: str = "EST/B.EU000A2X2A25.WT", start_date: str = None, end_date: str = None
 ):
     """Get ECB data
 
@@ -36,18 +38,31 @@ def get_series_data(
     end_date: Optional[str]
         End date, formatted YYYY-MM-DD
     """
-    start_date = start_date.replace("-", "")
-    end_date = end_date.replace("-", "")
-    url = (
-        "https://sdw.ecb.europa.eu/quickviewexport.do?trans=N"
-        f"&start={start_date}&end={end_date}&SERIES_KEY={series_id}&type=csv"
-    )
+
+    cookies = {
+        "Content-Type": "text/csv"
+    }
+    params = {
+        "startPeriod": start_date,
+        "endPeriod": end_date,
+        "format": "csvdata"
+    }
+    url = f"https://data-api.ecb.europa.eu/service/data/{series_id}"
+
     time.sleep(0.5)
 
     def _get_data(max_retries: int = 5):
         try:
+            response = get(
+                url=url,
+                cookies=cookies,
+                params=params
+            )
             df = pd.read_csv(
-                url, header=5, usecols=[0, 1], index_col=0, parse_dates=True
+                StringIO(response.content.decode("utf-8")),
+                parse_dates=True,
+                usecols=["OBS_VALUE", "TIME_PERIOD"],
+                index_col="TIME_PERIOD"
             )
             df = df.iloc[::-1]
             return df
@@ -118,11 +133,11 @@ def get_ecb_yield_curve(
     """
     base_return = pd.DataFrame(), date if return_date else pd.DataFrame()
     if yield_type == "spot_rate":
-        yield_type = f"YC.B.U2.EUR.4F.G_N_{'A' if any_rating else 'C'}.SV_C_YM.SR_"
+        yield_type = f"YC/B.U2.EUR.4F.G_N_{'A' if any_rating else 'C'}.SV_C_YM.SR_"
     elif yield_type == "instantaneous_forward":
-        yield_type = f"YC.B.U2.EUR.4F.G_N_{'A' if any_rating else 'C'}.SV_C_YM.IF_"
+        yield_type = f"YC/B.U2.EUR.4F.G_N_{'A' if any_rating else 'C'}.SV_C_YM.IF_"
     elif yield_type == "par_yield":
-        yield_type = f"YC.B.U2.EUR.4F.G_N_{'A' if any_rating else 'C'}.SV_C_YM.PY"
+        yield_type = f"YC/B.U2.EUR.4F.G_N_{'A' if any_rating else 'C'}.SV_C_YM.PY"
     else:
         console.print("[red]Incorrect input for parameter yield_type[/red]")
         return base_return
@@ -176,7 +191,8 @@ def get_ecb_yield_curve(
 
                 results = optional_rich_track(
                     pool.imap_unordered(
-                        partial(get_series_data, start_date=date, end_date=date),
+                        partial(get_series_data,
+                                start_date=date, end_date=date),
                         series_id,
                     ),
                     total=len(series_id),
@@ -184,7 +200,8 @@ def get_ecb_yield_curve(
                 )
                 for i, result in enumerate(results):
                     if isinstance(result, pd.DataFrame) and result.empty:
-                        console.print(f"\n[red]No data for {series_id[i]}[/red]")
+                        console.print(
+                            f"\n[red]No data for {series_id[i]}[/red]")
                         # we remove the corresponding index from the list of years
                         years.pop(i)
                         continue
