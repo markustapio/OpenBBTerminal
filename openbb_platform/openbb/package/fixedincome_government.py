@@ -42,9 +42,9 @@ class ROUTER_fixedincome_government(Container):
 
         Parameters
         ----------
-        start_date : Optional[datetime.date]
+        start_date : Union[datetime.date, None, str]
             Start date of the data, in YYYY-MM-DD format.
-        end_date : Optional[datetime.date]
+        end_date : Union[datetime.date, None, str]
             End date of the data, in YYYY-MM-DD format.
         provider : Optional[Literal['federal_reserve', 'fmp']]
             The provider to use for the query, by default None.
@@ -69,30 +69,32 @@ class ROUTER_fixedincome_government(Container):
         -------------
         date : date
             The date of the data.
+        week_4 : Optional[float]
+            4 week Treasury bills rate (secondary market).
         month_1 : Optional[float]
-            1 month treasury rate.
+            1 month Treasury rate.
         month_2 : Optional[float]
-            2 month treasury rate.
+            2 month Treasury rate.
         month_3 : Optional[float]
-            3 month treasury rate.
+            3 month Treasury rate.
         month_6 : Optional[float]
-            6 month treasury rate.
+            6 month Treasury rate.
         year_1 : Optional[float]
-            1 year treasury rate.
+            1 year Treasury rate.
         year_2 : Optional[float]
-            2 year treasury rate.
+            2 year Treasury rate.
         year_3 : Optional[float]
-            3 year treasury rate.
+            3 year Treasury rate.
         year_5 : Optional[float]
-            5 year treasury rate.
+            5 year Treasury rate.
         year_7 : Optional[float]
-            7 year treasury rate.
+            7 year Treasury rate.
         year_10 : Optional[float]
-            10 year treasury rate.
+            10 year Treasury rate.
         year_20 : Optional[float]
-            20 year treasury rate.
+            20 year Treasury rate.
         year_30 : Optional[float]
-            30 year treasury rate.
+            30 year Treasury rate.
 
         Example
         -------
@@ -104,7 +106,11 @@ class ROUTER_fixedincome_government(Container):
             "/fixedincome/government/treasury_rates",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/fixedincome/government/treasury_rates",
+                        ("federal_reserve", "fmp"),
+                    )
                 },
                 standard_params={
                     "start_date": start_date,
@@ -134,7 +140,7 @@ class ROUTER_fixedincome_government(Container):
 
         Parameters
         ----------
-        date : Optional[datetime.date]
+        date : Union[datetime.date, None, str]
             A specific date to get data for. Defaults to the most recent FRED entry.
         inflation_adjusted : Optional[bool]
             Get inflation adjusted rates.
@@ -174,7 +180,11 @@ class ROUTER_fixedincome_government(Container):
             "/fixedincome/government/us_yield_curve",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/fixedincome/government/us_yield_curve",
+                        ("fred",),
+                    )
                 },
                 standard_params={
                     "date": date,

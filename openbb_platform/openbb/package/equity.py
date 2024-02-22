@@ -1,6 +1,6 @@
 ### THIS FILE IS AUTO-GENERATED. DO NOT EDIT. ###
 
-from typing import Literal, Optional
+from typing import List, Literal, Optional, Union
 
 from openbb_core.app.model.custom_parameter import OpenBBCustomParameter
 from openbb_core.app.model.obbject import OBBject
@@ -76,7 +76,7 @@ class ROUTER_equity(Container):
     def market_snapshots(
         self, provider: Optional[Literal["fmp", "polygon"]] = None, **kwargs
     ) -> OBBject:
-        """Get a current, complete, market snapshot.
+        """Get an updated equity market snapshot. This includes price data for thousands of stocks.
 
         Parameters
         ----------
@@ -194,7 +194,11 @@ class ROUTER_equity(Container):
             "/equity/market_snapshots",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/market_snapshots",
+                        ("fmp", "polygon"),
+                    )
                 },
                 standard_params={},
                 extra_params=kwargs,
@@ -221,17 +225,20 @@ class ROUTER_equity(Container):
     def profile(
         self,
         symbol: Annotated[
-            str, OpenBBCustomParameter(description="Symbol to get data for.")
+            Union[str, List[str]],
+            OpenBBCustomParameter(
+                description="Symbol to get data for. Multiple items allowed: fmp, intrinio, yfinance."
+            ),
         ],
         provider: Optional[Literal["fmp", "intrinio", "yfinance"]] = None,
         **kwargs
     ) -> OBBject:
-        """Equity Info. Get general price and performance metrics of a stock.
+        """Get general information about a company. This includes company name, industry, sector and price data.
 
         Parameters
         ----------
-        symbol : str
-            Symbol to get data for.
+        symbol : Union[str, List[str]]
+            Symbol to get data for. Multiple items allowed: fmp, intrinio, yfinance.
         provider : Optional[Literal['fmp', 'intrinio', 'yfinance']]
             The provider to use for the query, by default None.
             If None, the provider specified in defaults is selected or 'fmp' if there is
@@ -385,18 +392,27 @@ class ROUTER_equity(Container):
             "/equity/profile",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/profile",
+                        ("fmp", "intrinio", "yfinance"),
+                    )
                 },
                 standard_params={
                     "symbol": symbol,
                 },
                 extra_params=kwargs,
+                extra_info={
+                    "symbol": {
+                        "multiple_items_allowed": ["fmp", "intrinio", "yfinance"]
+                    }
+                },
             )
         )
 
     @validate
     def screener(self, provider: Optional[Literal["fmp"]] = None, **kwargs) -> OBBject:
-        """Equity Screen. Screen for companies meeting various criteria.
+        """Screen for companies meeting various criteria. These criteria include market cap, price, beta, volume, and dividend yield.
 
         Parameters
         ----------
@@ -494,7 +510,11 @@ class ROUTER_equity(Container):
             "/equity/screener",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/screener",
+                        ("fmp",),
+                    )
                 },
                 standard_params={},
                 extra_params=kwargs,
@@ -516,7 +536,7 @@ class ROUTER_equity(Container):
         provider: Optional[Literal["intrinio", "sec"]] = None,
         **kwargs
     ) -> OBBject:
-        """Equity Search. Search for a company or stock ticker.
+        """Search for stock symbol, CIK, LEI, or company name.
 
         Parameters
         ----------
@@ -575,7 +595,11 @@ class ROUTER_equity(Container):
             "/equity/search",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/search",
+                        ("intrinio", "sec"),
+                    )
                 },
                 standard_params={
                     "query": query,

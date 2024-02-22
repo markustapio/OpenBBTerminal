@@ -38,7 +38,7 @@ class ROUTER_equity_discovery(Container):
         provider: Optional[Literal["yfinance"]] = None,
         **kwargs
     ) -> OBBject:
-        """Get the most active Equities.
+        """Get the most actively traded stocks based on volume.
 
         Parameters
         ----------
@@ -77,7 +77,7 @@ class ROUTER_equity_discovery(Container):
             Percent change.
         volume : float
             The trading volume.
-        market_cap : Optional[str]
+        market_cap : Optional[float]
             Market Cap displayed in billions. (provider: yfinance)
         avg_volume_3_months : Optional[float]
             Average volume over the last 3 months in millions. (provider: yfinance)
@@ -94,7 +94,11 @@ class ROUTER_equity_discovery(Container):
             "/equity/discovery/active",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/discovery/active",
+                        ("yfinance",),
+                    )
                 },
                 standard_params={
                     "sort": sort,
@@ -115,7 +119,7 @@ class ROUTER_equity_discovery(Container):
         provider: Optional[Literal["yfinance"]] = None,
         **kwargs
     ) -> OBBject:
-        """Get aggressive small cap Equities.
+        """Get top small cap stocks based on earnings growth.
 
         Parameters
         ----------
@@ -154,7 +158,7 @@ class ROUTER_equity_discovery(Container):
             Percent change.
         volume : float
             The trading volume.
-        market_cap : Optional[str]
+        market_cap : Optional[float]
             Market Cap. (provider: yfinance)
         avg_volume_3_months : Optional[float]
             Average volume over the last 3 months in millions. (provider: yfinance)
@@ -171,7 +175,11 @@ class ROUTER_equity_discovery(Container):
             "/equity/discovery/aggressive_small_caps",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/discovery/aggressive_small_caps",
+                        ("yfinance",),
+                    )
                 },
                 standard_params={
                     "sort": sort,
@@ -208,13 +216,18 @@ class ROUTER_equity_discovery(Container):
         provider: Optional[Literal["fmp"]] = None,
         **kwargs
     ) -> OBBject:
-        """Get the most-recent filings submitted to the SEC.
+        """Get the URLs to SEC filings reported to EDGAR database, such as 10-K, 10-Q, 8-K, and more. SEC
+        filings include Form 10-K, Form 10-Q, Form 8-K, the proxy statement, Forms 3, 4, and 5, Schedule 13, Form 114,
+        Foreign Investment Disclosures and others. The annual 10-K report is required to be
+        filed annually and includes the company's financial statements, management discussion and analysis,
+        and audited financial statements.
+
 
         Parameters
         ----------
-        start_date : Optional[datetime.date]
+        start_date : Union[datetime.date, None, str]
             Start date of the data, in YYYY-MM-DD format.
-        end_date : Optional[datetime.date]
+        end_date : Union[datetime.date, None, str]
             End date of the data, in YYYY-MM-DD format.
         form_type : Optional[str]
             Filter by form type. Visit https://www.sec.gov/forms for a list of supported form types.
@@ -260,13 +273,19 @@ class ROUTER_equity_discovery(Container):
         -------
         >>> from openbb import obb
         >>> obb.equity.discovery.filings(limit=100)
+        >>> # Get filings for the year 2023, limited to 100 results
+        >>> obb.equity.discovery.filings(start_date='2023-01-01', end_date='2023-12-31')
         """  # noqa: E501
 
         return self._run(
             "/equity/discovery/filings",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/discovery/filings",
+                        ("fmp",),
+                    )
                 },
                 standard_params={
                     "start_date": start_date,
@@ -290,7 +309,7 @@ class ROUTER_equity_discovery(Container):
         provider: Optional[Literal["yfinance"]] = None,
         **kwargs
     ) -> OBBject:
-        """Get the top Equity gainers.
+        """Get the top price gainers in the stock market.
 
         Parameters
         ----------
@@ -329,7 +348,7 @@ class ROUTER_equity_discovery(Container):
             Percent change.
         volume : float
             The trading volume.
-        market_cap : Optional[str]
+        market_cap : Optional[float]
             Market Cap. (provider: yfinance)
         avg_volume_3_months : Optional[float]
             Average volume over the last 3 months in millions. (provider: yfinance)
@@ -346,7 +365,11 @@ class ROUTER_equity_discovery(Container):
             "/equity/discovery/gainers",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/discovery/gainers",
+                        ("yfinance",),
+                    )
                 },
                 standard_params={
                     "sort": sort,
@@ -367,7 +390,7 @@ class ROUTER_equity_discovery(Container):
         provider: Optional[Literal["yfinance"]] = None,
         **kwargs
     ) -> OBBject:
-        """Get growth tech Equities.
+        """Get top tech stocks based on revenue and earnings growth.
 
         Parameters
         ----------
@@ -406,7 +429,7 @@ class ROUTER_equity_discovery(Container):
             Percent change.
         volume : float
             The trading volume.
-        market_cap : Optional[str]
+        market_cap : Optional[float]
             Market Cap. (provider: yfinance)
         avg_volume_3_months : Optional[float]
             Average volume over the last 3 months in millions. (provider: yfinance)
@@ -423,7 +446,11 @@ class ROUTER_equity_discovery(Container):
             "/equity/discovery/growth_tech",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/discovery/growth_tech",
+                        ("yfinance",),
+                    )
                 },
                 standard_params={
                     "sort": sort,
@@ -444,7 +471,7 @@ class ROUTER_equity_discovery(Container):
         provider: Optional[Literal["yfinance"]] = None,
         **kwargs
     ) -> OBBject:
-        """Get the top Equity losers.
+        """Get the top price losers in the stock market.
 
         Parameters
         ----------
@@ -483,7 +510,7 @@ class ROUTER_equity_discovery(Container):
             Percent change.
         volume : float
             The trading volume.
-        market_cap : Optional[str]
+        market_cap : Optional[float]
             Market Cap. (provider: yfinance)
         avg_volume_3_months : Optional[float]
             Average volume over the last 3 months in millions. (provider: yfinance)
@@ -500,7 +527,11 @@ class ROUTER_equity_discovery(Container):
             "/equity/discovery/losers",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/discovery/losers",
+                        ("yfinance",),
+                    )
                 },
                 standard_params={
                     "sort": sort,
@@ -521,7 +552,7 @@ class ROUTER_equity_discovery(Container):
         provider: Optional[Literal["yfinance"]] = None,
         **kwargs
     ) -> OBBject:
-        """Get undervalued growth Equities.
+        """Get potentially undervalued growth stocks.
 
         Parameters
         ----------
@@ -560,7 +591,7 @@ class ROUTER_equity_discovery(Container):
             Percent change.
         volume : float
             The trading volume.
-        market_cap : Optional[str]
+        market_cap : Optional[float]
             Market Cap. (provider: yfinance)
         avg_volume_3_months : Optional[float]
             Average volume over the last 3 months in millions. (provider: yfinance)
@@ -577,7 +608,11 @@ class ROUTER_equity_discovery(Container):
             "/equity/discovery/undervalued_growth",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/discovery/undervalued_growth",
+                        ("yfinance",),
+                    )
                 },
                 standard_params={
                     "sort": sort,
@@ -598,7 +633,7 @@ class ROUTER_equity_discovery(Container):
         provider: Optional[Literal["yfinance"]] = None,
         **kwargs
     ) -> OBBject:
-        """Get undervalued large cap Equities.
+        """Get potentially undervalued large cap stocks.
 
         Parameters
         ----------
@@ -654,7 +689,11 @@ class ROUTER_equity_discovery(Container):
             "/equity/discovery/undervalued_large_caps",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/discovery/undervalued_large_caps",
+                        ("yfinance",),
+                    )
                 },
                 standard_params={
                     "sort": sort,

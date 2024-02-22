@@ -27,7 +27,10 @@ class ROUTER_equity_compare(Container):
         provider: Optional[Literal["fmp"]] = None,
         **kwargs
     ) -> OBBject:
-        """Equity Peers. Company peers.
+        """Get the closest peers for a given company.
+
+        Peers consist of companies trading on the same exchange, operating within the same sector
+        and with comparable market capitalizations.
 
         Parameters
         ----------
@@ -67,7 +70,11 @@ class ROUTER_equity_compare(Container):
             "/equity/compare/peers",
             **filter_inputs(
                 provider_choices={
-                    "provider": provider,
+                    "provider": self._get_provider(
+                        provider,
+                        "/equity/compare/peers",
+                        ("fmp",),
+                    )
                 },
                 standard_params={
                     "symbol": symbol,

@@ -26,6 +26,8 @@ class YFinanceEquityHistoricalQueryParams(EquityHistoricalQueryParams):
     Source: https://finance.yahoo.com/
     """
 
+    __json_schema_extra__ = {"symbol": ["multiple_items_allowed"]}
+
     interval: Optional[
         Literal[
             "1m",
@@ -103,7 +105,7 @@ class YFinanceEquityHistoricalFetcher(
 
     @staticmethod
     def extract_data(
-        query: YFinanceEquityHistoricalQueryParams,  # pylint: disable=unused-argument
+        query: YFinanceEquityHistoricalQueryParams,
         credentials: Optional[Dict[str, str]],
         **kwargs: Any,
     ) -> List[Dict]:
@@ -159,6 +161,8 @@ class YFinanceEquityHistoricalFetcher(
 
         data.reset_index(inplace=True)
         data.rename(columns={"index": "date"}, inplace=True)
+        if query.interval in ["1d", "1W", "1M", "3M"]:
+            data["date"] = data["date"].dt.strftime("%Y-%m-%d")
 
         return data.to_dict("records")
 
